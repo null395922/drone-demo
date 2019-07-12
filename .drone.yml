@@ -10,3 +10,8 @@ pipeline:
       - ls
       - CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app .
       - ./app
+  publish:
+    image: plugins/docker
+    repo: null395922/drone-demo
+    dockerfile: ./Dockerfile
+    tags: latest
