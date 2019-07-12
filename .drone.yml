@@ -1,7 +1,3 @@
-workspace:
-  base: /srv/drone-demo
-  path: .
-
 pipeline:
   build:
     image: golang:alpine
