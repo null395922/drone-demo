@@ -21,3 +21,17 @@ pipeline:
     password: hellohello
     #dockerfile: ./Dockerfile
     tags: latest
+# 如果需要自动部署容器到服务器，可以打开下面这部分代码
+  deploy:
+    image: appleboy/drone-ssh # 用于连接服务器
+    host:
+       - 52.81.87.81
+   username: ubuntu
+   password: ac28b9d722a420c3
+   port: 22
+   command_timeout: 300 # ssh命令行执行超时时间，300秒
+   script:
+       - docker pull null395922/demo:latest
+       - docker rm -f docker-demo || true # 这里这样是因为如果不存在docker-demo，rm会报错
+       - docker run -d -p 8065:8065 --name docker-demo null395922/demo
+
