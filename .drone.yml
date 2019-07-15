@@ -16,6 +16,8 @@ pipeline:
       - ./app
   publish:
     image: plugins/docker
-    repo: null395922/drone-demo
-    dockerfile: ./Dockerfile
+    repo: null395922/demo
+    username: null395922
+    password: hellohello
+    #dockerfile: ./Dockerfile
     tags: latest
