@@ -1,4 +1,8 @@
 pipeline:
+  test:
+    image: golang:1.10.2
+    commands:
+      - go test
   build:
     image: golang:alpine
     environment:
@@ -8,7 +12,6 @@ pipeline:
       - echo $$KEY
       - pwd
       - ls
-      - go test
       - CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app .
       - ./app
   publish:
