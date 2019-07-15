@@ -21,7 +21,7 @@ pipeline:
     password: hellohello
     #dockerfile: ./Dockerfile
     tags: latest
-#如果需要自动部署容器到服务器，可以打开下面这部分代码
+
   deploy:
     image: appleboy/drone-ssh # 用于连接服务器
     host:
